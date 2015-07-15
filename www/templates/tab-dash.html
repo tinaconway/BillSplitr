@@ -1,0 +1,49 @@
+
+
+<ion-view view-title="BillSplitr" class="tabDash" ng-controller="DashCtrl">
+  <ion-content class="padding">
+<div ng-if="!isAuthenticated()">
+
+ <button ng-click="authenticate('google')" class="button button-block button-positive icon-left ion-social-googleplus">
+   Sign in with Google
+ </button>
+   </div>
+<div class="list card">
+      <div class="item item-divider">Bill Split</div>
+      <div class="item item-body">
+        <div>
+        <div class="item item-image">
+          <img id="mainImage" src="https://lh3.ggpht.com/odZxGBr3yzGDFMcN9X0UnQ7BwG4wViUHle5YHvGOgR48BO31ufPHJGBePkpFeQik2VM=w300" alt="">
+        </div>
+  <div class="list list-inset">
+    <form id="inputForm">
+    <label class="item item-input">
+      <input type="text" placeholder="Bill Name" ng-model="bill.name">
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="Amount" ng-model="bill.amount">
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="Split by (#)" ng-model="bill.split">
+    </label>
+    <button class="button button-block button-positive" on-tap="addBill(bill)">
+      Submit
+    </button>
+    <div class="centerDiv">
+    <h2>Amount Each: ${{chat.amountEach}}</h2>
+  </form>
+    <button class="button button-positive" on-tap="resetForm()">
+      Clear
+    </button>
+  </div>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </ion-content>
+</ion-view>

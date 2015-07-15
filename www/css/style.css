@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+.logoutButton {
+  text-align: center;
+}
+
+#mainImage {
+  width: 75%;
+  margin: 0;
+}
+
+.tabDash {
+  background-color: #d3d3d3;
+}
+
+.centerDiv {
+  text-align: center;
+}

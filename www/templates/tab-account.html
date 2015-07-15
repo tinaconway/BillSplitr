@@ -1,0 +1,22 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+    <ion-toggle  ng-model="settings.enableFriends">
+        Enable Friends
+    </ion-toggle>
+
+
+    <div ng-if="isAuthenticated()">
+      <div class="card">
+        <div class="item item-text-wrap">
+          You are currently logged in.
+        </div>
+      </div>
+      <button ng-click="logout()" class="button button-small button-positive logoutButton">
+        Log Out
+      </button>
+    </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
