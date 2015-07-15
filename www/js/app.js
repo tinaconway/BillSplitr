@@ -9,7 +9,8 @@ angular.module('starter', [
   'ionic',
   'starter.controllers',
   'starter.services',
-  'satellizer'
+  'satellizer',
+  'xngClearable'
   ])
 
 .run(function($ionicPlatform) {

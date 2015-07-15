@@ -3,14 +3,19 @@ var newData = {};
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $auth, CalculateService, $rootScope) {
+
   CalculateService.getBills().then(function(data) {
     $scope.chats = data.data;
-    $scope.chats = Chats.all();
+
   });
 
   $scope.clearInput = function() {
+      $scope.bill.name = "";
+      $scope.bill.amount = "";
+      $scope.bill.split = "";
+      $scope.testForm.$setPristine();
+       };
 
-  };
 
     $scope.addBill = function(bill) {
       newData.name = bill.name;
@@ -26,13 +31,19 @@ angular.module('starter.controllers', [])
 
     var getBills = function() {
       CalculateService.getBills().then(function(data) {
+          console.log(data);
         $scope.chats = data.data;
-        $scope.chats = Chats.all();
+
       });
-    }
+    };
+    $scope.deleteBill = function(id) {
+      CalculateService.deleteBill(id);
+
+    };
 
 
   $scope.$on('items:updated', getBills);
+  $scope.$on('bill:deleted', getBills);
 
   $scope.isAuthenticated = function () {
     return $auth.isAuthenticated();
@@ -76,7 +87,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, $auth) {
-  $scope.chat = Chats.get($stateParams.chatId);
+
 })
 
 .controller('AccountCtrl', function($scope, $auth) {

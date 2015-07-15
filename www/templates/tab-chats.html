@@ -1,15 +1,30 @@
 <ion-view view-title="Chats">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="bill in chats" type="item-text-wrap" href="#/tab/chats/{{bill.id}}">
+      <div ng-if="!isAuthenticated()">
+        <h3>Please log in to view your bills.</h3>
+        <button ng-click="authenticate('google')" class="button button-block button-positive icon-left ion-social-googleplus">
+          Sign in with Google
+        </button>
+      </div>
+      <div ng-if="isAuthenticated()">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="bill in chats" type="item-text-wrap" >
+      <div class="leftSide">
         <h2>{{bill.name}}</h2>
         <p>${{bill.amount}}</p>
         <p>Split by {{bill.split}}</p>
         <h3>Amount per person: ${{bill.amountEach}}</h3>
-        <ion-option-button class="button-assertive">
-          Delete
-        </ion-option-button>
+      </div>
+      <div class="rightSide">
+      <button class="button button-positive" on-tap="deleteBill(bill._id)">
+        Paid
+      </button>
+    </div>
+  <!--       <ion-option-button class="button-assertive">
+    Delete
+  </ion-option-button> -->
       </ion-item>
+    </div>
     </ion-list>
   </ion-content>
 </ion-view>

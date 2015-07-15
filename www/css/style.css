@@ -1,10 +1,14 @@
 /* Empty. Add your own CSS if you like */
+
+body {
+  font-family: 'Lato', sans-serif;
+}
 .logoutButton {
   text-align: center;
 }
 
 #mainImage {
-  width: 75%;
+  width: 100%;
   margin: 0;
 }
 
@@ -14,4 +18,23 @@
 
 .centerDiv {
   text-align: center;
+}
+
+.rightSide {
+  display: inline-block;
+  width: 20%;
+
+}
+form {
+  font-weight: 100;
+}
+
+.leftSide {
+  display: inline-block;
+  width: 75%;
+  vertical-align: middle;
+}
+h3 {
+  text-align: center;
+  font-weight: 100
 }

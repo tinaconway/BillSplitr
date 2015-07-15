@@ -1,6 +1,5 @@
 
-
-<ion-view view-title="BillSplitr" class="tabDash" ng-controller="DashCtrl">
+<ion-view view-title="BillSplitr" class="tabDash">
   <ion-content class="padding">
 <div ng-if="!isAuthenticated()">
 
@@ -8,39 +7,41 @@
    Sign in with Google
  </button>
    </div>
-<div class="list card">
-      <div class="item item-divider">Bill Split</div>
+
+
       <div class="item item-body">
         <div>
         <div class="item item-image">
-          <img id="mainImage" src="https://lh3.ggpht.com/odZxGBr3yzGDFMcN9X0UnQ7BwG4wViUHle5YHvGOgR48BO31ufPHJGBePkpFeQik2VM=w300" alt="">
+          <img id="mainImage" src="http://domainhealth.com.au/wp-content/uploads/2012/07/split-the-bill1.jpg" alt="">
         </div>
   <div class="list list-inset">
-    <form id="inputForm">
+    <form name= "testForm" ng-controller="DashCtrl">
     <label class="item item-input">
-      <input type="text" placeholder="Bill Name" ng-model="bill.name">
+      <input type="text" placeholder="Bill Name" ng-model="bill.name" >
     </label>
     <label class="item item-input">
-      <input type="text" placeholder="Amount" ng-model="bill.amount">
+      $<input type="text"  ng-model="bill.amount" xng-clearable>
     </label>
     <label class="item item-input">
       <input type="text" placeholder="Split by (#)" ng-model="bill.split">
     </label>
-    <button class="button button-block button-positive" on-tap="addBill(bill)">
-      Submit
-    </button>
+    <input type="submit" value="Submit" class="button button-block button-positive" on-tap="addBill(bill)">
+  <!--   <button class="button button-block button-positive" on-tap="addBill(bill)">
+    Submit
+  </button> -->
     <div class="centerDiv">
     <h2>Amount Each: ${{chat.amountEach}}</h2>
+    <input type="button" class="button button-positive" value="Clear" on-tap="clearInput()">
+
+
   </form>
-    <button class="button button-positive" on-tap="resetForm()">
-      Clear
-    </button>
+      
   </div>
   </div>
 
         </div>
       </div>
-    </div>
+
 
 
 
